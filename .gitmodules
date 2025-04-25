@@ -1,0 +1,60 @@
+[submodule "projects/encryption/openssl"]
+	path = projects/encryption/openssl
+	url = https://github.com/openssl/openssl.git
+[submodule "projects/encryption/wolfssl"]
+	path = projects/encryption/wolfssl
+	url = https://github.com/wolfSSL/wolfssl.git
+[submodule "projects/encryption/mbedtls"]
+	path = projects/encryption/mbedtls
+	url = https://github.com/Mbed-TLS/mbedtls.git
+[submodule "projects/encryption/gnutls"]
+	path = projects/encryption/gnutls
+	url = https://gitlab.com/gnutls/gnutls.git
+[submodule "projects/authentication/dropbear"]
+	path = projects/authentication/dropbear
+	url = https://github.com/mkj/dropbear.git
+[submodule "projects/authentication/openssh"]
+	path = projects/authentication/openssh
+	url = https://github.com/openssh/openssh-portable.git
+[submodule "projects/wireless/hostapd"]
+	path = projects/wireless/hostapd
+	url = https://w1.fi/hostap.git
+[submodule "projects/system/busybox"]
+	path = projects/system/busybox
+	url = https://git.busybox.net/busybox.git
+[submodule "projects/networking/lwip"]
+	path = projects/networking/lwip
+	url = https://git.savannah.nongnu.org/git/lwip.git
+[submodule "projects/vpn/strongswan"]
+	path = projects/vpn/strongswan
+	url = https://github.com/strongswan/strongswan.git
+[submodule "projects/wireless/openthread"]
+	path = projects/wireless/openthread
+	url = https://github.com/openthread/openthread.git
+[submodule "projects/wireless/hostap"]
+	path = projects/wireless/hostap
+	url = https://w1.fi/hostap.git
+[submodule "projects/system/mosquitto"]
+	path = projects/system/mosquitto
+	url = https://github.com/eclipse/mosquitto.git
+[submodule "projects/vpn/openvpn"]
+	path = projects/vpn/openvpn
+	url = https://github.com/OpenVPN/openvpn.git
+[submodule "projects/networking/pppd"]
+	path = projects/networking/pppd
+	url = https://github.com/paulusmack/ppp.git
+[submodule "projects/rtos/zephyr"]
+	path = projects/rtos/zephyr
+	url = https://github.com/zephyrproject-rtos/zephyr.git
+[submodule "projects/rtos/freertos"]
+	path = projects/rtos/freertos
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "projects/networking/dnsmasq"]
+	path = projects/networking/dnsmasq
+	url = https://thekelleys.org.uk/git/dnsmasq.git
+[submodule "projects/wireless/bluez"]
+	path = projects/wireless/bluez
+	url = https://git.kernel.org/pub/scm/bluetooth/bluez.git
+[submodule "projects/system/samba"]
+	path = projects/system/samba
+	url = https://git.samba.org/samba.git
