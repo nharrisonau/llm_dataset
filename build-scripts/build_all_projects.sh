@@ -1,8 +1,9 @@
 #!/bin/bash
-# build_all_projects.sh
 set -e
+set -x  # Debugging
 
 ROOT_DIR=$(pwd)
+PROJECTS_DIR="$ROOT_DIR/projects"
 ORIG_DIR="$ROOT_DIR/samples/original"
 STRIP_DIR="$ROOT_DIR/samples/stripped"
 
@@ -12,10 +13,13 @@ mkdir -p "$STRIP_DIR"
 
 echo "🔧 [1/3] Building all submodules and exporting binaries..."
 
-for project in projects/*/*; do
+echo "📚 Initializing git submodules..."
+git submodule update --init --recursive
+
+for project in "$PROJECTS_DIR"/*/*; do
   if [ -d "$project" ]; then
     NAME=$(basename "$project")
-    BUILD_SCRIPT="$ROOT_DIR/build-scripts/$NAME.sh"
+    BUILD_SCRIPT="$ROOT_DIR/build-scripts/${NAME}.sh"
 
     if [ -f "$BUILD_SCRIPT" ]; then
       echo -e "\n🛠️ Building $NAME"
@@ -30,8 +34,11 @@ done
 
 echo -e "\n📦 [2/3] Copying original binaries to stripped directory..."
 
-mkdir -p "$STRIP_DIR"
-cp "$ORIG_DIR"/* "$STRIP_DIR"/
+if compgen -G "$ORIG_DIR/*" > /dev/null; then
+  cp "$ORIG_DIR"/* "$STRIP_DIR"/
+else
+  echo "⚠️  No binaries found in $ORIG_DIR — skipping copy step"
+fi
 
 echo -e "\n✂️ [3/3] Stripping binaries..."
 

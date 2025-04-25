@@ -2,7 +2,8 @@
 set -e
 
 PROJECT_DIR=$(pwd)
-OUTPUT_DIR="$PROJECT_DIR/../../samples/original"
+ROOT_DIR=$(realpath "$PROJECT_DIR/../../..")
+OUTPUT_DIR="$ROOT_DIR/samples/original"
 
 echo "🔧 Building OpenSSL..."
 
@@ -11,8 +12,8 @@ make -j$(nproc)
 make install_sw
 
 mkdir -p "$OUTPUT_DIR"
-cp build/bin/openssl "$OUTPUT_DIR/openssl"
-cp build/lib/libcrypto.a "$OUTPUT_DIR/libcrypto.a"
-cp build/lib/libssl.a "$OUTPUT_DIR/libssl.a"
+cp "$PROJECT_DIR/build/bin/openssl"       "$OUTPUT_DIR/openssl"
+cp "$PROJECT_DIR/build/lib64/libcrypto.a" "$OUTPUT_DIR/libcrypto.a"
+cp "$PROJECT_DIR/build/lib64/libssl.a"    "$OUTPUT_DIR/libssl.a"
 
 echo "✅ Exported OpenSSL binaries."

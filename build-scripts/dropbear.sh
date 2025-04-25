@@ -2,7 +2,8 @@
 set -e
 
 PROJECT_DIR=$(pwd)
-OUTPUT_DIR="$PROJECT_DIR/../../samples/original"
+ROOT_DIR=$(realpath "$PROJECT_DIR/../../..")
+OUTPUT_DIR="$ROOT_DIR/samples/original"
 
 echo "🔧 Building Dropbear..."
 
