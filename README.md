@@ -70,23 +70,6 @@ This script will:
 
 ---
 
-## Purpose
-
-This dataset supports:
-- **Reverse engineering** workflows
-- **Function tagging** and **component labeling** experiments
-- **Foreign material exploitation (FME)** automation research
-- **LLM training** on real-world embedded software artifacts
-
----
-
-## Notes
-
-- Some components (e.g., FreeRTOS, Zephyr, OpenThread) were excluded for now due to requiring external SDKs or complex environment setups.
-- Stripping failures (e.g., on non-ELF binaries) are non-fatal and logged.
-
----
-
 ## Requirements
 
 - Linux environment (tested on Ubuntu 22.04+)
@@ -95,14 +78,6 @@ This dataset supports:
   sudo apt install build-essential git cmake autoconf automake libtool pkg-config
   ```
 - `strip` from GNU binutils for binary size reduction
-
----
-
-## Future Extensions
-
-- Add missing embedded targets with special toolchains
-- Generate full `manifest.json` of all samples with metadata (original size, stripped size, source project, etc.)
-- Optional static analysis integration (symbol counts, instruction mix, etc.)
 
 ---
 
