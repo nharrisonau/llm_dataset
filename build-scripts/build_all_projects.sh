@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-set -x  # Debugging
 
 ROOT_DIR=$(pwd)
 PROJECTS_DIR="$ROOT_DIR/projects"

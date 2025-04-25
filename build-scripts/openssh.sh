@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-set -x
 
 PROJECT_DIR=$(pwd)
 ROOT_DIR=$(realpath "$PROJECT_DIR/../../..")

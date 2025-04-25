@@ -5,7 +5,7 @@ It organizes, builds, and exports both **original** and **stripped** versions of
 
 ---
 
-## Structure
+## 📁 Directory Structure
 
 ```
 projects/
@@ -13,8 +13,7 @@ projects/
   ├── authentication/  # e.g., Dropbear SSH, OpenSSH
   ├── wireless/         # e.g., hostapd, BlueZ
   ├── networking/       # e.g., lwIP, dnsmasq
-  ├── system/           # e.g., BusyBox, Samba
-  ├── vpn/              # e.g., OpenVPN, strongSwan
+  ├── system/           # e.g., Mosquitto
 
 build-scripts/
   └── *.sh              # One script per project to build and export binaries
@@ -26,16 +25,16 @@ samples/
 
 ---
 
-## Usage
+## 🚀 Usage
 
-### 1. Clone the repository **with submodules**
+### 1. Clone the repository with submodules
 
 ```bash
 git clone --recurse-submodules <repo-url>
 cd <repo-dir>
 ```
 
-> If you already cloned, initialize submodules manually:
+> If you already cloned without `--recurse-submodules`, run:
 > ```bash
 > git submodule update --init --recursive
 > ```
@@ -48,46 +47,47 @@ cd <repo-dir>
 ./build_all_projects.sh
 ```
 
-This script will:
-- Build each project using its corresponding script under `build-scripts/`
-- Collect important binaries into `samples/original/`
-- Create a `samples/stripped/` copy where all binaries are stripped
+This will:
+- Build each project using its matching script in `build-scripts/`
+- Export the key binary artifacts to `samples/original/`
+- Strip them and place copies into `samples/stripped/`
 
 ---
 
-## List of Components
+## ✅ Currently Included Projects
 
-| Category         | Project        |
-|------------------|----------------|
-| Encryption       | OpenSSL, wolfSSL, mbedTLS, GnuTLS |
-| Authentication   | Dropbear SSH, OpenSSH |
-| Wireless         | hostapd, BlueZ |
-| Networking       | lwIP, dnsmasq, pppd |
-| System           | BusyBox, Samba, Mosquitto |
-| VPN              | OpenVPN, strongSwan |
+| Category         | Projects                          |
+|------------------|-----------------------------------|
+| **Encryption**   | OpenSSL, wolfSSL, mbedTLS         |
+| **Authentication** | Dropbear, OpenSSH               |
+| **Wireless**     | hostapd, BlueZ                    |
+| **Networking**   | lwIP, dnsmasq                     |
+| **System**       | Mosquitto                         |
 
-> Only open-source projects are included. Firmware-agnostic.
-
----
-
-## Requirements
-
-- Linux environment (tested on Ubuntu 22.04+)
-- Basic build tools:
-  ```bash
-  sudo apt install build-essential git cmake autoconf automake libtool pkg-config
-  ```
-- `strip` from GNU binutils for binary size reduction
+> All projects are open-source and selected based on common appearance in embedded firmware.
 
 ---
 
-# Quickstart
+## ⚙️ Requirements
+
+Tested on **Ubuntu 22.04+**. You’ll need:
+
+```bash
+sudo apt install build-essential git cmake autoconf automake libtool pkg-config
+```
+
+Some projects may require additional packages (e.g., `libnl-3-dev`, `libdbus-1-dev`, etc.), which are checked during build. Errors will indicate missing dependencies with guidance.
+
+---
+
+## 🔧 Quickstart
 
 ```bash
 git clone --recurse-submodules <repo-url>
 cd <repo-dir>
 chmod +x build_all_projects.sh build-scripts/*.sh
-./build_all_projects.sh
-ls samples/original/  # See compiled binaries
-ls samples/stripped/  # See stripped binaries
+./build-scripts/build_all_projects.sh
+
+ls samples/original/   # See compiled binaries
+ls samples/stripped/   # See stripped binaries
 ```
