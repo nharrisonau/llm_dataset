@@ -1,0 +1,327 @@
+{
+  "dbclient": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the Dropbear SSH client."
+    },
+    {
+      "function_name": "cli_run_command",
+      "description": "Parses and executes the remote command on the SSH server."
+    },
+    {
+      "function_name": "cli_auth_try",
+      "description": "Attempts available authentication methods (password or public key) to log in to the SSH server."
+    },
+    {
+      "function_name": "send_session_identification",
+      "description": "Sends the initial SSH protocol version identification string to the server."
+    },
+    {
+      "function_name": "send_msg_kexinit",
+      "description": "Initiates the SSH key exchange by sending a KEXINIT negotiation packet."
+    },
+    {
+      "function_name": "recv_msg_channel_data",
+      "description": "Processes incoming data packets on an established SSH channel."
+    },
+    {
+      "function_name": "gen_new_keys",
+      "description": "Generates new encryption keys (re-keying) for the SSH session."
+    }
+  ],
+  "dnsmasq": [
+    {
+      "function_name": "receive_query",
+      "description": "Handles incoming DNS queries from clients and begins name resolution."
+    },
+    {
+      "function_name": "answer_request",
+      "description": "Constructs and sends DNS response packets back to the client."
+    },
+    {
+      "function_name": "forward_query",
+      "description": "Forwards DNS queries to an upstream DNS server when not answerable locally."
+    },
+    {
+      "function_name": "dhcp_packet",
+      "description": "Processes incoming DHCP discovery/request packets from DHCP clients."
+    },
+    {
+      "function_name": "dhcp_reply",
+      "description": "Builds and transmits DHCP offer/acknowledgment responses to clients."
+    }
+  ],
+  "dropbear": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the Dropbear SSH server (sets up listening sockets and forks per connection)."
+    },
+    {
+      "function_name": "main_no_shell",
+      "description": "Initializes Dropbear in a restricted mode without a shell (key-only or tunneling mode)."
+    },
+    {
+      "function_name": "recv_msg_userauth_request",
+      "description": "Processes incoming SSH user authentication requests from clients."
+    },
+    {
+      "function_name": "recv_msg_channel_open",
+      "description": "Handles requests from the client to open a new channel (e.g., session channel)."
+    },
+    {
+      "function_name": "recv_msg_channel_data",
+      "description": "Handles data sent by the client over an established channel (e.g., terminal I/O)."
+    },
+    {
+      "function_name": "send_msg_kexinit",
+      "description": "Sends the SSH key exchange initialization packet to begin negotiating algorithms."
+    },
+    {
+      "function_name": "send_msg_newkeys",
+      "description": "Notifies the client that new encryption keys have been established and activated."
+    },
+    {
+      "function_name": "send_session_identification",
+      "description": "Transmits the server’s identification string to the client as part of session setup."
+    },
+    {
+      "function_name": "session_loop",
+      "description": "Main loop managing the SSH session, reading incoming packets and sending responses."
+    }
+  ],
+  "dropbear_scp": [
+    {
+      "function_name": "scp_main",
+      "description": "Main function for Dropbear's SCP utility, coordinating file transfer operations."
+    },
+    {
+      "function_name": "scp_parse_args",
+      "description": "Parses command-line arguments to determine SCP mode (source or sink) and files to transfer."
+    },
+    {
+      "function_name": "sink",
+      "description": "Receives files or directories from the remote SCP sender and writes them locally."
+    },
+    {
+      "function_name": "source",
+      "description": "Sends files or directories from the local system to the remote SCP receiver."
+    }
+  ],
+  "dropbearkey": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the Dropbear key generation utility."
+    },
+    {
+      "function_name": "generate_key",
+      "description": "Generates a new SSH key pair (RSA, DSA, or ECDSA) based on provided parameters."
+    },
+    {
+      "function_name": "write_private_key",
+      "description": "Saves the generated private key to a file in Dropbear’s format."
+    },
+    {
+      "function_name": "print_public_key",
+      "description": "Outputs the corresponding public key (for authorized_keys or known_hosts usage)."
+    },
+    {
+      "function_name": "print_fingerprint",
+      "description": "Displays a fingerprint (hash) of the newly generated key for verification."
+    }
+  ],
+  "hostapd": [
+    {
+      "function_name": "handle_assoc",
+      "description": "Processes incoming 802.11 association requests from clients (stations connecting to the AP)."
+    },
+    {
+      "function_name": "handle_auth",
+      "description": "Processes 802.11 authentication frame exchanges from stations trying to authenticate."
+    },
+    {
+      "function_name": "ieee802_1x_receive",
+      "description": "Handles incoming EAPOL (802.1X) authentication packets (e.g., from a WPA/WPA2 handshake)."
+    },
+    {
+      "function_name": "wpa_auth_sm_event",
+      "description": "Handles events in the WPA state machine (4-way handshake progress for an associated client)."
+    },
+    {
+      "function_name": "hostapd_new_sta",
+      "description": "Creates and initializes a new station entry upon association, setting up security context and keys."
+    }
+  ],
+  "libmbedtls": [
+      { "function_name": "mbedtls_x509_crt_parse",       "description": "Parse a DER/PEM X.509 certificate" },
+      { "function_name": "mbedtls_x509_crt_verify",      "description": "Verify certificate chain and signature" },
+      { "function_name": "mbedtls_pk_parse_key",         "description": "Load a private key (DER/PEM format)" },
+      { "function_name": "mbedtls_pk_parse_public_key",  "description": "Load a public key from buffer" },
+      { "function_name": "mbedtls_ssl_handshake",        "description": "Perform the TLS/SSL handshake protocol" },
+      { "function_name": "mbedtls_ssl_read",             "description": "Receive decrypted application data over TLS" },
+      { "function_name": "mbedtls_ssl_write",            "description": "Send encrypted application data over TLS" },
+      { "function_name": "mbedtls_cipher_update",        "description": "Process a chunk of data through a cipher context" },
+      { "function_name": "mbedtls_sha256_process",       "description": "Process a single SHA-256 data block" }
+    ],
+  "mosquitto": [
+    {
+      "function_name": "handle__packet",
+      "description": "Central dispatcher that reads raw data from client sockets and routes MQTT packets for processing."
+    },
+    {
+      "function_name": "mqtt3_loop",
+      "description": "Main server loop for the MQTT broker, handling network I/O and scheduling for all clients."
+    },
+    {
+      "function_name": "handle__connect",
+      "description": "Processes a new client's MQTT CONNECT packet (client identification, protocol version, credentials)."
+    },
+    {
+      "function_name": "handle__publish",
+      "description": "Handles an incoming MQTT PUBLISH message from a client (delivering a message to the broker)."
+    },
+    {
+      "function_name": "handle__subscribe",
+      "description": "Processes an MQTT SUBSCRIBE packet, registering the client's subscription to topics."
+    },
+    {
+      "function_name": "acl__check",
+      "description": "Validates a client's permission (access control) to publish or subscribe to a given topic."
+    }
+  ],
+  "openssl": [
+    {
+      "function_name": "openssl_main",
+      "description": "Primary entry point for the OpenSSL multi-purpose command-line tool."
+    },
+    {
+      "function_name": "s_client_main",
+      "description": "Implements the 's_client' command, initiating an SSL/TLS client session to a server (for testing)."
+    },
+    {
+      "function_name": "s_server_main",
+      "description": "Implements the 's_server' command, launching a simple SSL/TLS server for testing purposes."
+    },
+    {
+      "function_name": "x509_main",
+      "description": "Implements the 'x509' command for displaying, signing, or converting X.509 certificates."
+    },
+    {
+      "function_name": "genrsa_main",
+      "description": "Implements the 'genrsa' command to generate a new RSA private key."
+    }
+  ],
+  "ssh": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the OpenSSH client (ssh), initiating connection to the server."
+    },
+    {
+      "function_name": "ssh_connect",
+      "description": "Establishes a TCP connection and begins the SSH protocol exchange with the server."
+    },
+    {
+      "function_name": "ssh_login",
+      "description": "Manages the user authentication phase (password, publickey, etc.) with the SSH server."
+    },
+    {
+      "function_name": "client_loop",
+      "description": "Main loop of the SSH client after login, handling user I/O and forwarding data between client and server."
+    },
+    {
+      "function_name": "ssh_send_pubkey",
+      "description": "Handles sending the user's public key to the server during public-key authentication (if that method is used)."
+    }
+  ],
+  "sshd": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the OpenSSH server (sshd); sets up listening sockets and handles incoming connections."
+    },
+    {
+      "function_name": "do_authentication",
+      "description": "Orchestrates the user authentication process (password, public key, etc.) for an incoming connection."
+    },
+    {
+      "function_name": "server_loop",
+      "description": "Main loop for an established SSH session, handling channel data and global requests after authentication."
+    },
+    {
+      "function_name": "do_exec",
+      "description": "Executes a requested command or shell for an authenticated session (upon client request on a session channel)."
+    },
+    {
+      "function_name": "process_packet",
+      "description": "Inspects and dispatches incoming SSH protocol packets to the appropriate handler (authentication, channel, etc.)."
+    }
+  ],
+  "wolfssl_client": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the WolfSSL TLS client example program."
+    },
+    {
+      "function_name": "tcp_connect",
+      "description": "Opens a TCP connection to the designated server address and port."
+    },
+    {
+      "function_name": "load_certificates",
+      "description": "Loads CA certificates required to verify the server’s certificate during the TLS handshake."
+    },
+    {
+      "function_name": "wolfSSL_connect",
+      "description": "Initiates the WolfSSL TLS handshake as a client, negotiating session parameters with the server."
+    },
+    {
+      "function_name": "wolfSSL_read",
+      "description": "Receives data from the TLS connection once the handshake is complete (reads decrypted application data)."
+    }
+  ],
+  "wolfssl_server": [
+    {
+      "function_name": "main",
+      "description": "Entry point for the WolfSSL TLS server example program."
+    },
+    {
+      "function_name": "setup_socket",
+      "description": "Sets up a listening TCP socket on the server to accept incoming client connections."
+    },
+    {
+      "function_name": "load_server_certificate",
+      "description": "Loads the server’s certificate and private key for use in WolfSSL handshake."
+    },
+    {
+      "function_name": "wolfSSL_accept",
+      "description": "Performs the WolfSSL handshake on an incoming connection, establishing a secure TLS session with the client."
+    },
+    {
+      "function_name": "handle_client",
+      "description": "Manages data exchange with the connected client after the TLS handshake (reading requests, sending responses)."
+    }
+  ],
+  "wpa_supplicant": [
+    {
+      "function_name": "wpa_supplicant_process_1_of_4",
+      "description": "Processes the first EAPOL message of the WPA 4-way handshake (handling the AP’s ANonce and initiating the handshake)."
+    },
+    {
+      "function_name": "wpa_supplicant_send_2_of_4",
+      "description": "Constructs and sends the second message of the 4-way handshake (supplicant’s SNonce and authentication tag to the AP)."
+    },
+    {
+      "function_name": "wpa_supplicant_process_3_of_4",
+      "description": "Handles the third message of the handshake from the AP (receiving the group key and completing PTK/GTK setup)."
+    },
+    {
+      "function_name": "wpa_sm_install_ptk",
+      "description": "Installs the Pairwise Transient Key (PTK) after successful derivation, enabling data encryption with the AP."
+    },
+    {
+      "function_name": "wpa_driver_nl80211_scan",
+      "description": "Triggers a wireless scan operation via the nl80211 driver interface to discover available networks."
+    },
+    {
+      "function_name": "wpa_supplicant_associate",
+      "description": "Initiates association with a selected Wi-Fi network, starting the process to join that network (authentication and key handshake to follow)."
+    }
+  ]
+}

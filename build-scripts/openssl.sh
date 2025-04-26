@@ -13,7 +13,5 @@ make install_sw
 
 mkdir -p "$OUTPUT_DIR"
 cp "$PROJECT_DIR/build/bin/openssl"       "$OUTPUT_DIR/openssl"
-cp "$PROJECT_DIR/build/lib64/libcrypto.a" "$OUTPUT_DIR/libcrypto.a"
-cp "$PROJECT_DIR/build/lib64/libssl.a"    "$OUTPUT_DIR/libssl.a"
 
 echo "✅ Exported OpenSSL binaries."

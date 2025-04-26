@@ -39,13 +39,38 @@ else
   echo "⚠️  No binaries found in $ORIG_DIR — skipping copy step"
 fi
 
-echo -e "\n✂️ [3/3] Stripping binaries..."
+echo -e "\n✂️ [3/3] Stripping binaries and archives..."
 
 for bin in "$STRIP_DIR"/*; do
-  if file "$bin" | grep -q 'executable\|ELF'; then
-    strip --strip-unneeded "$bin" || echo "⚠️  Could not strip: $(basename "$bin")"
+  if file "$bin" | grep -q 'executable\|shared object'; then
+    echo "🔧 Stripping ELF binary: $(basename "$bin")"
+    strip --strip-unneeded "$bin" || echo "⚠️ Could not strip ELF: $(basename "$bin")"
+
+  elif file "$bin" | grep -q 'current ar archive'; then
+    echo "🔧 Stripping static library: $(basename "$bin")"
+
+    TEMP_DIR=$(mktemp -d)
+    pushd "$TEMP_DIR" > /dev/null
+
+    # Extract object files
+    ar x "$bin"
+
+    # Strip each object
+    for obj in *.o; do
+      strip --strip-unneeded "$obj" || echo "⚠️ Could not strip object: $obj"
+    done
+
+    # Rebuild a fresh archive inside temp dir
+    ar rcs stripped.a *.o
+
+    popd > /dev/null
+
+    # Now move stripped archive over original
+    mv "$TEMP_DIR/stripped.a" "$bin"
+    rm -rf "$TEMP_DIR"
+
   else
-    echo "ℹ️  Skipped non-binary: $(basename "$bin")"
+    echo "ℹ️ Skipped non-binary: $(basename "$bin")"
   fi
 done
 
