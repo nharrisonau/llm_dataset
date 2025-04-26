@@ -5,10 +5,6 @@
       "description": "Entry point for the Dropbear SSH client."
     },
     {
-      "function_name": "cli_run_command",
-      "description": "Parses and executes the remote command on the SSH server."
-    },
-    {
       "function_name": "cli_auth_try",
       "description": "Attempts available authentication methods (password or public key) to log in to the SSH server."
     },
@@ -57,10 +53,6 @@
       "description": "Entry point for the Dropbear SSH server (sets up listening sockets and forks per connection)."
     },
     {
-      "function_name": "main_no_shell",
-      "description": "Initializes Dropbear in a restricted mode without a shell (key-only or tunneling mode)."
-    },
-    {
       "function_name": "recv_msg_userauth_request",
       "description": "Processes incoming SSH user authentication requests from clients."
     },
@@ -89,42 +81,6 @@
       "description": "Main loop managing the SSH session, reading incoming packets and sending responses."
     }
   ],
-  "dropbear_scp": [
-    {
-      "function_name": "main",
-      "description": "Main function for Dropbear's SCP utility, coordinating file transfer operations."
-    },
-    {
-      "function_name": "sink",
-      "description": "Receives files or directories from the remote SCP sender and writes them locally."
-    },
-    {
-      "function_name": "source",
-      "description": "Sends files or directories from the local system to the remote SCP receiver."
-    }
-  ],
-  "dropbearkey": [
-    {
-      "function_name": "main",
-      "description": "Entry point for the Dropbear key generation utility."
-    },
-    {
-      "function_name": "generate_key",
-      "description": "Generates a new SSH key pair (RSA, DSA, or ECDSA) based on provided parameters."
-    },
-    {
-      "function_name": "write_private_key",
-      "description": "Saves the generated private key to a file in Dropbear’s format."
-    },
-    {
-      "function_name": "print_public_key",
-      "description": "Outputs the corresponding public key (for authorized_keys or known_hosts usage)."
-    },
-    {
-      "function_name": "print_fingerprint",
-      "description": "Displays a fingerprint (hash) of the newly generated key for verification."
-    }
-  ],
   "hostapd": [
     {
       "function_name": "handle_assoc",
@@ -141,20 +97,12 @@
     {
       "function_name": "wpa_auth_sm_event",
       "description": "Handles events in the WPA state machine (4-way handshake progress for an associated client)."
-    },
-    {
-      "function_name": "hostapd_new_sta",
-      "description": "Creates and initializes a new station entry upon association, setting up security context and keys."
     }
   ],
   "mosquitto": [
     {
       "function_name": "handle__packet",
       "description": "Central dispatcher that reads raw data from client sockets and routes MQTT packets for processing."
-    },
-    {
-      "function_name": "mqtt3_loop",
-      "description": "Main server loop for the MQTT broker, handling network I/O and scheduling for all clients."
     },
     {
       "function_name": "handle__connect",
@@ -167,10 +115,6 @@
     {
       "function_name": "handle__subscribe",
       "description": "Processes an MQTT SUBSCRIBE packet, registering the client's subscription to topics."
-    },
-    {
-      "function_name": "acl__check",
-      "description": "Validates a client's permission (access control) to publish or subscribe to a given topic."
     }
   ],
   "openssl": [
@@ -189,68 +133,12 @@
     {
       "function_name": "x509_main",
       "description": "Implements the 'x509' command for displaying, signing, or converting X.509 certificates."
-    },
-    {
-      "function_name": "genrsa_main",
-      "description": "Implements the 'genrsa' command to generate a new RSA private key."
-    }
-  ],
-  "ssh": [
-    {
-      "function_name": "main",
-      "description": "Entry point for the OpenSSH client (ssh), initiating connection to the server."
-    },
-    {
-      "function_name": "ssh_connect",
-      "description": "Establishes a TCP connection and begins the SSH protocol exchange with the server."
-    },
-    {
-      "function_name": "ssh_login",
-      "description": "Manages the user authentication phase (password, publickey, etc.) with the SSH server."
-    },
-    {
-      "function_name": "client_loop",
-      "description": "Main loop of the SSH client after login, handling user I/O and forwarding data between client and server."
-    },
-    {
-      "function_name": "ssh_send_pubkey",
-      "description": "Handles sending the user's public key to the server during public-key authentication (if that method is used)."
-    }
-  ],
-  "sshd": [
-    {
-      "function_name": "main",
-      "description": "Entry point for the OpenSSH server (sshd); sets up listening sockets and handles incoming connections."
-    },
-    {
-      "function_name": "do_authentication",
-      "description": "Orchestrates the user authentication process (password, public key, etc.) for an incoming connection."
-    },
-    {
-      "function_name": "server_loop",
-      "description": "Main loop for an established SSH session, handling channel data and global requests after authentication."
-    },
-    {
-      "function_name": "do_exec",
-      "description": "Executes a requested command or shell for an authenticated session (upon client request on a session channel)."
-    },
-    {
-      "function_name": "process_packet",
-      "description": "Inspects and dispatches incoming SSH protocol packets to the appropriate handler (authentication, channel, etc.)."
     }
   ],
   "wolfssl_client": [
     {
       "function_name": "main",
       "description": "Entry point for the WolfSSL TLS client example program."
-    },
-    {
-      "function_name": "tcp_connect",
-      "description": "Opens a TCP connection to the designated server address and port."
-    },
-    {
-      "function_name": "load_certificates",
-      "description": "Loads CA certificates required to verify the server’s certificate during the TLS handshake."
     },
     {
       "function_name": "wolfSSL_connect",

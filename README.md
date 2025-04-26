@@ -10,7 +10,7 @@ It organizes, builds, and exports both **original** and **stripped** versions of
 ```
 projects/
   ├── encryption/      # e.g., OpenSSL, wolfSSL
-  ├── authentication/  # e.g., Dropbear SSH, OpenSSH
+  ├── authentication/  # e.g., Dropbear SSH
   ├── wireless/         # e.g., hostapd, BlueZ
   ├── networking/       # e.g., lwIP, dnsmasq
   ├── system/           # e.g., Mosquitto
@@ -59,7 +59,7 @@ This will:
 | Category         | Projects                          |
 |------------------|-----------------------------------|
 | **Encryption**   | OpenSSL, wolfSSL                  |
-| **Authentication** | Dropbear, OpenSSH               |
+| **Authentication** | Dropbear                        |
 | **Wireless**     | hostapd, BlueZ                    |
 | **Networking**   | lwIP, dnsmasq                     |
 | **System**       | Mosquitto                         |
