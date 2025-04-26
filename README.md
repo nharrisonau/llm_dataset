@@ -1,7 +1,7 @@
 # Firmware Component Sample Dataset
 
 This repository builds and collects sample binaries from open-source projects commonly found in firmware images.  
-It organizes, builds, and exports both **original** and **stripped** versions of these binaries to support reverse engineering, function tagging, and large-language-model (LLM) research.
+It organizes, builds, and exports both **original** and **stripped** versions of these binaries to support reverse engineering and program understanding research.
 
 ---
 
