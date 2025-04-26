@@ -9,7 +9,7 @@ It organizes, builds, and exports both **original** and **stripped** versions of
 
 ```
 projects/
-  ├── encryption/      # e.g., OpenSSL, wolfSSL, mbedTLS
+  ├── encryption/      # e.g., OpenSSL, wolfSSL
   ├── authentication/  # e.g., Dropbear SSH, OpenSSH
   ├── wireless/         # e.g., hostapd, BlueZ
   ├── networking/       # e.g., lwIP, dnsmasq
@@ -58,7 +58,7 @@ This will:
 
 | Category         | Projects                          |
 |------------------|-----------------------------------|
-| **Encryption**   | OpenSSL, wolfSSL, mbedTLS         |
+| **Encryption**   | OpenSSL, wolfSSL                  |
 | **Authentication** | Dropbear, OpenSSH               |
 | **Wireless**     | hostapd, BlueZ                    |
 | **Networking**   | lwIP, dnsmasq                     |

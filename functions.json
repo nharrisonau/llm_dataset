@@ -91,12 +91,8 @@
   ],
   "dropbear_scp": [
     {
-      "function_name": "scp_main",
+      "function_name": "main",
       "description": "Main function for Dropbear's SCP utility, coordinating file transfer operations."
-    },
-    {
-      "function_name": "scp_parse_args",
-      "description": "Parses command-line arguments to determine SCP mode (source or sink) and files to transfer."
     },
     {
       "function_name": "sink",
@@ -151,17 +147,6 @@
       "description": "Creates and initializes a new station entry upon association, setting up security context and keys."
     }
   ],
-  "libmbedtls": [
-      { "function_name": "mbedtls_x509_crt_parse",       "description": "Parse a DER/PEM X.509 certificate" },
-      { "function_name": "mbedtls_x509_crt_verify",      "description": "Verify certificate chain and signature" },
-      { "function_name": "mbedtls_pk_parse_key",         "description": "Load a private key (DER/PEM format)" },
-      { "function_name": "mbedtls_pk_parse_public_key",  "description": "Load a public key from buffer" },
-      { "function_name": "mbedtls_ssl_handshake",        "description": "Perform the TLS/SSL handshake protocol" },
-      { "function_name": "mbedtls_ssl_read",             "description": "Receive decrypted application data over TLS" },
-      { "function_name": "mbedtls_ssl_write",            "description": "Send encrypted application data over TLS" },
-      { "function_name": "mbedtls_cipher_update",        "description": "Process a chunk of data through a cipher context" },
-      { "function_name": "mbedtls_sha256_process",       "description": "Process a single SHA-256 data block" }
-    ],
   "mosquitto": [
     {
       "function_name": "handle__packet",
